@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,20 +12,30 @@ namespace Blog.Controllers
 {
     public class HomeController : Controller
     {
-        private List<Post> lista = new List<Post>();
-
-        public HomeController()
-        {
-            lista = new List<Post>();
-            lista.Add(new Post { Titulo = "Harry Potter", Resumo = "Pedra Filosofal", Categoria = "Filme, Livro" });
-            lista.Add(new Post { Titulo = "Cassino Royale", Resumo = "007", Categoria = "Filme" });
-            lista.Add(new Post { Titulo = "Monge e o Executivo", Resumo = "Romance sobre Liderança", Categoria = "Livro" });
-            lista.Add(new Post { Titulo = "New York, New York", Resumo = "Sucesso de Frank Sinatra", Categoria = "Música" });
-        }
         // GET: Home
         public ActionResult Index()
         {
-             return View(lista);
+            var lista = new List<Post>();
+            var cfg = ConfigurationManager.ConnectionStrings["blog"].ConnectionString;
+            using(var cnx = new SqlConnection(cfg))
+            {
+                cnx.Open();
+                SqlCommand comando = cnx.CreateCommand();
+                comando.CommandText = "select * from Posts";
+                SqlDataReader leitor = comando.ExecuteReader();
+                while (leitor.Read())
+                {
+                    Post post = new Post()
+                    {
+                        Id = Convert.ToInt32(leitor["id"]),
+                        Titulo = Convert.ToString(leitor["titulo"]),
+                        Resumo = Convert.ToString(leitor["resumo"]),
+                        Categoria = Convert.ToString(leitor["categoria"])
+                    };
+                    lista.Add(post);
+                }
+            }
+            return View(lista);
         }
 
         public ActionResult NovoPost()
@@ -32,10 +44,20 @@ namespace Blog.Controllers
         }
 
         [HttpPost]
-        public ActionResult AdicionaPost(Post post)
+        public ActionResult AdicionaPost(Post p)
         {
-            lista.Add(post);
-            return View("Index", lista);
+            var cfg = ConfigurationManager.ConnectionStrings["blog"].ConnectionString;
+            using (var cnx = new SqlConnection(cfg))
+            {
+                cnx.Open();
+                SqlCommand comando = cnx.CreateCommand();
+                comando.CommandText = "insert into posts (titulo, resumo, categoria) values (@titulo, @resumo, @categoria)";
+                comando.Parameters.Add(new SqlParameter("titulo", p.Titulo));
+                comando.Parameters.Add(new SqlParameter("resumo", p.Resumo));
+                comando.Parameters.Add(new SqlParameter("categoria", p.Categoria));
+                comando.ExecuteNonQuery();
+                return RedirectToAction("Index");
+            }
         }
     }
 }
