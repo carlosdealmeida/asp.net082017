@@ -90,3 +90,7 @@ C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\bin\System.Web.Mvc
 C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\obj\Debug\Blog.csprojResolveAssemblyReference.cache
 C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\obj\Debug\Blog.dll
 C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\obj\Debug\Blog.pdb
+C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\bin\EntityFramework.dll
+C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\bin\EntityFramework.SqlServer.dll
+C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\bin\EntityFramework.xml
+C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\bin\EntityFramework.SqlServer.xml
