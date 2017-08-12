@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model Blog.Models.Post
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AlteraPost</title>
+</head>
+<body>
+    <form action="/Home/Update" method="POST">
+        <input type="hidden" name="id" value="@Model.Id" />
+        Título: <input type="text" name="titulo" value="@Model.Titulo" /><br />
+        Resumo: <input type="text" name="resumo" value="@Model.Resumo" /><br />
+        Categoria: <input type="text" name="categoria" value="@Model.Categoria" /><br />
+        <button type="submit">Alterar</button>
+    </form>
+</body>
+</html>

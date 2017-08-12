@@ -143,6 +143,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infra\ConexaoFactory.cs" />
+    <Compile Include="Migrations\201708120002255_Inicial.cs" />
+    <Compile Include="Migrations\201708120002255_Inicial.Designer.cs">
+      <DependentUpon>201708120002255_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708120012171_Publicacao.cs" />
+    <Compile Include="Migrations\201708120012171_Publicacao.Designer.cs">
+      <DependentUpon>201708120012171_Publicacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -154,6 +163,7 @@
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\NovoPost.cshtml" />
+    <Content Include="Views\Home\AlteraPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,7 +171,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708120002255_Inicial.resx">
+      <DependentUpon>201708120002255_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708120012171_Publicacao.resx">
+      <DependentUpon>201708120012171_Publicacao.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

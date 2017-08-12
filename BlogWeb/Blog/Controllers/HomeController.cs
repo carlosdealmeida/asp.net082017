@@ -15,10 +15,15 @@ namespace Blog.Controllers
 {
     public class HomeController : Controller
     {
+        private PostDAO DAO;
+
+        public HomeController()
+        {
+            DAO = new PostDAO();
+        }
         // GET: Home
         public ActionResult Index()
         {
-            var DAO = new PostDAO();
             var lista = DAO.Lista();
             return View(lista);
         }
@@ -31,17 +36,40 @@ namespace Blog.Controllers
         [HttpPost]
         public ActionResult AdicionaPost(Post p)
         {
-            var DAO = new PostDAO();
             DAO.Adiciona(p);
             return RedirectToAction("Index");
         }
 
         public ActionResult Categorias([Bind(Prefix="id")] string categoria)
         {
-            var DAO = new PostDAO();
             var lista = DAO.PostsPorCategoria(categoria);
             return View("Index", lista);            
         }
 
+        public ActionResult RemovePost(int id)
+        {
+            DAO.Remove(id);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult AlteraPost(int id)
+        {
+            return View(DAO.BuscaPorId(id));
+        }
+
+        public ActionResult Update(Post p)
+        {
+            DAO.Update(p);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Publicar(int id)
+        {
+            var post = DAO.BuscaPorId(id);
+            post.Publicado = true;
+            post.Data = DateTime.Now;
+            DAO.Update(post);
+            return RedirectToAction("Index");
+        }
     }
 }
