@@ -7,3 +7,9 @@ Caso você não consiga realizar a instalação do Visual Studio Community 2017,
 - Abra o CMD e navegue até a pasta desejada e digite o seguinte comando:
 
 vs_community.exe --lang pt-br --layout VisualStudio2017 --all
+
+
+Referências
+dontpad.com/fn23
+macoratti.net
+w3schools.com
