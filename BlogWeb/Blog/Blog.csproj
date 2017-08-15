@@ -130,6 +130,14 @@
       <DependentUpon>blog.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-3.1.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -151,6 +159,10 @@
     <Compile Include="Migrations\201708120012171_Publicacao.Designer.cs">
       <DependentUpon>201708120012171_Publicacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708142245122_ValidacaoPost.cs" />
+    <Compile Include="Migrations\201708142245122_ValidacaoPost.Designer.cs">
+      <DependentUpon>201708142245122_ValidacaoPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,6 +176,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\NovoPost.cshtml" />
     <Content Include="Views\Home\AlteraPost.cshtml" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708120012171_Publicacao.resx">
       <DependentUpon>201708120012171_Publicacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708142245122_ValidacaoPost.resx">
+      <DependentUpon>201708142245122_ValidacaoPost.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

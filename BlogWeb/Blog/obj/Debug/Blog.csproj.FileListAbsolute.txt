@@ -97,3 +97,4 @@ C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\bin\EntityFramewor
 C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\obj\Debug\Blog.Migrations.Inicial.resources
 C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\obj\Debug\Blog.csproj.GenerateResource.Cache
 C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\obj\Debug\Blog.Migrations.Publicacao.resources
+C:\Users\fn7025\Desktop\Exercicios\asp.net082017\BlogWeb\Blog\obj\Debug\Blog.Migrations.ValidacaoPost.resources

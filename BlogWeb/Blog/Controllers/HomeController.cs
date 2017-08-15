@@ -30,14 +30,21 @@ namespace Blog.Controllers
 
         public ActionResult NovoPost()
         {
-            return View();
+            return View(new Post());
         }
 
         [HttpPost]
         public ActionResult AdicionaPost(Post p)
         {
-            DAO.Adiciona(p);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                DAO.Adiciona(p);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("NovoPost",p);
+            }
         }
 
         public ActionResult Categorias([Bind(Prefix="id")] string categoria)
@@ -59,8 +66,15 @@ namespace Blog.Controllers
 
         public ActionResult Update(Post p)
         {
-            DAO.Update(p);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                DAO.Adiciona(p);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("NovoPost", p);
+            }
         }
 
         public ActionResult Publicar(int id)

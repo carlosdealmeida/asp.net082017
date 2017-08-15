@@ -3,19 +3,30 @@
     Layout = null;
 }
 
+@model Blog.Models.Post
+
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>NovoPost</title>
-</head>
-<body>
-    <form action="/Home/AdicionaPost" method="POST">
-        Título: <input type="text" name="titulo" /><br />
-        Resumo: <input type="text" name="resumo" /><br />
-        Categoria: <input type="text" name="categoria" /><br />
-        <button type="submit">Ok</button>
-    </form>
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>NovoPost</title>
+    </head>
+    <body>
+        <form action="/Home/AdicionaPost" method="POST">
+            Título: <input type="text" name="titulo" value="@Model.Titulo" /><br />
+            @Html.ValidationMessage("titulo")
+            <br />
+            Resumo: <input type="text" name="resumo" value="@Model.Resumo" /><br />
+            @Html.ValidationMessage("resumo")
+            <br />
+            Categoria: <input type="text" name="categoria" value="@Model.Categoria" /><br />
+            <button type="submit">Ok</button>
+        </form>
+        <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script>
+            $("form").validate();
+        </script>
+    </body>
 </html>

@@ -13,7 +13,7 @@
     <title>Index</title>
 </head>
 <body>
-    <a href="/Home/NovoPost">Novo</a>
+    @Html.ActionLink("Novo", "NovoPost")
     <table>
         <thead>
             <tr>
@@ -30,7 +30,7 @@
                 <tr>
                     <td>@p.Titulo</td>
                     <td>@p.Resumo</td>
-                    <td><a href="/Home/Categorias/@p.Categoria">@p.Categoria</a></td>
+                    <td>@Html.ActionLink(p.Categoria, "Categorias",new { id = p.Categoria })</td>
                     <td>
                     @if (p.Publicado)
                     {
@@ -41,9 +41,9 @@
                         @Html.Raw("Não");
                     }
                     </td>
-                    <td><a href="/Home/RemovePost/@p.Id">Excluir</a></td>
-                    <td><a href="/Home/AlteraPost/@p.Id">Editar</a></td>
-                    <td><a href="/Home/Publicar/@p.Id">Publicar</a></td>
+                    <td>@Html.ActionLink("Excluir", "RemovePost/@p.Id")</td>
+                    <td>@Html.ActionLink("Editar", "AlteraPost/@p.Id")</td>
+                    <td>@Html.ActionLink("Publicar", "Publicar/@p.Id")</td>
                 </tr>
             }
         </tbody>
