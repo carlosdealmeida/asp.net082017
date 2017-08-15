@@ -11,8 +11,8 @@ vs_community.exe --lang pt-br --layout VisualStudio2017 --all
 
 Referências
 
-dontpad.com/fn23
+http://dontpad.com/fn23
 
-macoratti.net
+http://macoratti.net
 
-w3schools.com
+http://w3schools.com
