@@ -68,12 +68,12 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                DAO.Adiciona(p);
+                DAO.Update(p);
                 return RedirectToAction("Index");
             }
             else
             {
-                return View("NovoPost", p);
+                return View("AlteraPost", p);
             }
         }
 
@@ -84,6 +84,14 @@ namespace Blog.Controllers
             post.Data = DateTime.Now;
             DAO.Update(post);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult CategoriaAutocomplete(string term)
+        {
+            var lista = DAO.CategoriasPorTermo(term);
+            var model = lista.Select(s => new { label = s });
+            return Json(model);
         }
     }
 }

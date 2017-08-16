@@ -1,29 +1,20 @@
-﻿
-@{
-    Layout = null;
+﻿@model Blog.Models.Post
+
+@section Styles{
+    @Html.Partial("_Styles")
 }
 
-@model Blog.Models.Post
+@using (Html.BeginForm("Update", "Home"))
+{
+    @Html.HiddenFor(p=>p.Id)
+    @Html.HiddenFor(p => p.Data)
+    @Html.HiddenFor(p => p.Publicado)
 
-<!DOCTYPE html>
+    @Html.EditorFor(p => p)
 
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>AlteraPost</title>
-    </head>
-    <body>
-        <form action="/Home/Update" method="POST">
-            <input type="hidden" name="id" value="@Model.Id" />
-            Título: <input type="text" name="titulo" value="@Model.Titulo" /><br />
-            Resumo: <input type="text" name="resumo" value="@Model.Resumo" /><br />
-            Categoria: <input type="text" name="categoria" value="@Model.Categoria" /><br />
-            <button type="submit">Alterar</button>
-        </form>
-        <script src="~/Scripts/jquery-3.1.1.min.js"></script>
-        <script src="~/Scripts/jquery.validate.min.js"></script>
-        <script>
-            $("form").validate();
-        </script>
-    </body>
-</html>
+    <button type="submit">Alterar</button>
+}
+
+@section Scripts{
+    @Html.Partial("_Scripts")
+}

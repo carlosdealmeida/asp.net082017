@@ -72,5 +72,18 @@ namespace Blog.DAL
         {
             Debug.WriteLine(sql);
         }
+
+        public IList<string>CategoriasPorTermo(string term)
+        {
+            using (var ctx = new BlogContext())
+            {
+                var lista = ctx.Posts
+                    .Where(p => p.Categoria.StartsWith(term))
+                    .Select(p => p.Categoria)
+                    .Distinct()
+                    .ToList();
+                return lista;
+            }
+        }
     }
 }
