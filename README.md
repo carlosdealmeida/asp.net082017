@@ -16,3 +16,5 @@ http://dontpad.com/fn23
 http://macoratti.net
 
 http://w3schools.com
+
+http://www.flextool.com.br/tabela_cores.html
