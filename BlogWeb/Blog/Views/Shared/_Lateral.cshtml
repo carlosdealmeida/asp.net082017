@@ -1,0 +1,17 @@
+﻿<aside>
+    <div>
+        <h3>Busca</h3>
+        @using (Html.BeginForm("Busca", "Home"))
+        {
+            @Html.TextBox("termo",null, new { @class ="form-control", placeholder = "Busca por..."})
+            <br />
+            <button class="btn btn-default" type="submit">Pesquisar</button>
+        }
+    </div>
+    <div id="Categorias">
+        <h3>Categorias</h3>
+    </div>
+    <div id="Autores">
+        <h3>Autores</h3>
+    </div>
+</aside>

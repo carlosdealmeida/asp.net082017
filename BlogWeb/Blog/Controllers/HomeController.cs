@@ -24,7 +24,7 @@ namespace Blog.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var lista = DAO.Lista();
+            var lista = DAO.ListaPublicados();
             return View(lista);
         }
 
@@ -92,6 +92,13 @@ namespace Blog.Controllers
             var lista = DAO.CategoriasPorTermo(term);
             var model = lista.Select(s => new { label = s });
             return Json(model);
+        }
+
+        public ActionResult Busca(string termo)
+        {
+            var lista = DAO.BuscaPorTermo(termo);
+            ViewBag.Titulo1 = "Busca por: " + termo; 
+            return View("Index", lista);
         }
     }
 }

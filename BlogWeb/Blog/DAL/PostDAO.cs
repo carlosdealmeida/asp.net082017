@@ -55,7 +55,21 @@ namespace Blog.DAL
             using (var ctx = new BlogContext())
             {
                 //ctx.Database.Log = MostraSql;
-                return ctx.Posts.ToList();
+                var lista = ctx.Posts
+                    .ToList();
+                return lista;
+            }
+        }
+
+        public IList<Post> ListaPublicados()
+        {
+            using (var ctx = new BlogContext())
+            {
+                //ctx.Database.Log = MostraSql;
+                var lista = Lista();
+                    lista.Where(p => p.Publicado == true)
+                    .ToList();
+                return lista;
             }
         }
 
@@ -81,6 +95,17 @@ namespace Blog.DAL
                     .Where(p => p.Categoria.StartsWith(term))
                     .Select(p => p.Categoria)
                     .Distinct()
+                    .ToList();
+                return lista;
+            }
+        }
+
+        internal object BuscaPorTermo(string termo)
+        {
+            using (var ctx = new BlogContext())
+            {
+                var lista = ctx.Posts
+                    .Where(p => p.Titulo.Contains(termo) || p.Titulo.Contains(termo))
                     .ToList();
                 return lista;
             }

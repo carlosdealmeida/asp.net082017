@@ -8,12 +8,23 @@
     <head>
         <meta name="viewport" content="width=device-width" />
         <title>Resenha Cultural</title>
+        @Html.Partial("_Styles")
     </head>
     <body>
-        @RenderSection("Styles", false)
-
-        @RenderBody()
-
+        @Html.Partial("_Cabecalho")
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10 col-lg-10">
+                    <main>
+                        @RenderBody()
+                    </main>
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    @Html.Partial("_Lateral")
+                </div>
+            </div>            
+        </div>
+        @Html.Partial("_Rodape")
         @RenderSection("Scripts",false)
     </body>
 </html>

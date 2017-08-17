@@ -1,0 +1,27 @@
+﻿@model IList<Blog.Models.Post>
+
+<h2>Lista de Posts</h2>
+
+@Html.ActionLink("Novo Post","Novo", null, new { @class = "btn btn-primary"})
+
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Post</th>
+            <th>Categoria</th>
+            <th>Publicado Em</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var p in Model)
+        {
+            <tr>
+                <td>
+                    <h4>@Html.ActionLink(p.Titulo, "Alterar", new { Id = p.Id }, new { @class = "btn btn-success" })</h4>
+                    <p>@p.Resumo</p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

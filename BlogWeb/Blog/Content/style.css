@@ -1,0 +1,46 @@
+﻿body {
+	background-color: #ccc;
+}
+aside {
+    padding:20px;
+	background-color: gray;
+	border-radius: 5px;
+	background-color: black;
+	color: white;
+}
+footer {
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 20px 0;
+    margin-top: 30px;
+}
+article {
+	background-color: white;
+	padding: 20px;
+	margin-bottom: 20px;
+	margin-right: 3%;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px;
+}
+.jumbotron{
+	background: #eee url('../Content/images/back.png') center;
+	padding-left: 40px;
+	box-shadow: 2px 2px 3px;
+}
+#login {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+#login-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 15%;
+}
+
+#login-form button {
+    margin-top: 20px;
+}

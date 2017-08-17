@@ -1,38 +1,22 @@
 ﻿@model List<Blog.Models.Post>
 
-@Html.ActionLink("Novo", "NovoPost")
-<h2>Lista de Posts</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Resumo</th>
-            <th>Categoria</th>
-            <th>Publicado</th>
-            <th colspan="3">Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
-            <tr>
-                <td>@p.Titulo</td>
-                <td>@p.Resumo</td>
-                <td>@Html.ActionLink(p.Categoria, "Categorias",new { id = p.Categoria })</td>
-                <td>
-                @if (p.Publicado)
-                {
-                    @Html.Raw(string.Format("{0:dd/MM/yyyy hh:mm:ss}", p.Data));
-                }
-                else
-                {
-                    @Html.Raw("Não");
-                }
-                </td>
-                <td>@Html.ActionLink("Excluir", "RemovePost", new { id = p.Id })</td>
-                <td>@Html.ActionLink("Editar", "AlteraPost", new { id = p.Id })</td>
-                <td>@Html.ActionLink("Publicar", "Publicar", new { id = p.Id })</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h3>@ViewBag.Titulo1</h3>
+
+@if (Model.Count > 0)
+{
+    foreach (var p in Model)
+    {
+        <article>
+            <h2>@p.Titulo</h2>
+            <p>@p.Resumo</p>
+            <p>@p.Categoria</p>
+        </article>
+    }
+}
+else
+{
+    <article>
+        <p>Sua busca não retornou nenhum resultado</p>
+    </article>
+
+}
