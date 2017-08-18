@@ -1,0 +1,40 @@
+﻿@model Blog.Models.LoginViewModel
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Login - Resenha Cultural</title>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/signin.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                @Html.ValidationSummary()
+                @using (Html.BeginForm("Login","Usuario",FormMethod.Post,new { @class = "form-signin" }))
+                {
+                    <h2 class="form-signin-heading">Resenha Cultural - Painel</h2>
+                    @Html.LabelFor(u => u.Login)
+                    @Html.TextBoxFor(u => u.Login, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(u => u.Password)
+                    @Html.PasswordFor(u => u.Password, new { @class = "form-control" })
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="manter_conexao" name="manter_conexao" value="Sim"> Mantenha-me conectado
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
+                    <br>
+                    <center>
+                        Esqueceu sua senha clique <a href="#">aqui</a>
+                    </center>
+                }
+            </div>
+        </div>
+    </body>
+</html>

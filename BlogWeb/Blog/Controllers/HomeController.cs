@@ -28,70 +28,10 @@ namespace Blog.Controllers
             return View(lista);
         }
 
-        public ActionResult NovoPost()
-        {
-            return View(new Post());
-        }
-
-        [HttpPost]
-        public ActionResult AdicionaPost(Post p)
-        {
-            if (ModelState.IsValid)
-            {
-                DAO.Adiciona(p);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View("NovoPost",p);
-            }
-        }
-
         public ActionResult Categorias([Bind(Prefix="id")] string categoria)
         {
             var lista = DAO.PostsPorCategoria(categoria);
             return View("Index", lista);            
-        }
-
-        public ActionResult RemovePost(int id)
-        {
-            DAO.Remove(id);
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult AlteraPost(int id)
-        {
-            return View(DAO.BuscaPorId(id));
-        }
-
-        public ActionResult Update(Post p)
-        {
-            if (ModelState.IsValid)
-            {
-                DAO.Update(p);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View("AlteraPost", p);
-            }
-        }
-
-        public ActionResult Publicar(int id)
-        {
-            var post = DAO.BuscaPorId(id);
-            post.Publicado = true;
-            post.Data = DateTime.Now;
-            DAO.Update(post);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public ActionResult CategoriaAutocomplete(string term)
-        {
-            var lista = DAO.CategoriasPorTermo(term);
-            var model = lista.Select(s => new { label = s });
-            return Json(model);
         }
 
         public ActionResult Busca(string termo)

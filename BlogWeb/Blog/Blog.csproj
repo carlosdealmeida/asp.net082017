@@ -135,7 +135,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\signin.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\style_admin_menu.css" />
     <Content Include="Content\style_admin.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -216,6 +218,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\PostController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Infra\BlogContext.cs" />
     <Compile Include="DAL\PostDAO.cs" />
     <Compile Include="Global.asax.cs">
@@ -235,6 +238,7 @@
       <DependentUpon>201708142245122_ValidacaoPost.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -245,11 +249,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\NovoPost.cshtml" />
-    <Content Include="Views\Home\AlteraPost.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Novo.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Alterar.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
-    <Content Include="Views\Shared\EditorTemplates\Post.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Post.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Scripts.cshtml" />
@@ -257,6 +261,7 @@
     <Content Include="Views\Shared\_Cabecalho.cshtml" />
     <Content Include="Views\Shared\_Lateral.cshtml" />
     <Content Include="Views\Shared\_Rodape.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
