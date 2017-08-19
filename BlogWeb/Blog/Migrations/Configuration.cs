@@ -1,5 +1,6 @@
 namespace Blog.Migrations
 {
+    using Microsoft.AspNet.Identity;
     using Models;
     using System;
     using System.Data.Entity;
@@ -15,7 +16,11 @@ namespace Blog.Migrations
 
         protected override void Seed(Blog.Infra.BlogContext context)
         {
-
+            var usuario = context.Users.First();
+            foreach(var p in context.Posts)
+            {
+                p.Autor = usuario;
+            }
         }
     }
 }

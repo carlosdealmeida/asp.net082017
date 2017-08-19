@@ -18,5 +18,7 @@ namespace Blog.Models
         public string Categoria { get; set; }
         public bool Publicado { get; set; }
         public DateTime? Data { get; set; }
+        public virtual Usuario Autor { get; set; }
+        public string AutorId { get; set; }
     }
 }

@@ -13,6 +13,14 @@ namespace Blog.DAL
 {
     public class PostDAO
     {
+
+        private BlogContext ctx;
+
+        public PostDAO(BlogContext ctx)
+        {
+            this.ctx = ctx;
+        }
+
         public void Adiciona(Post p)
         {
             using (var ctx = new BlogContext())
@@ -56,6 +64,7 @@ namespace Blog.DAL
             {
                 //ctx.Database.Log = MostraSql;
                 var lista = ctx.Posts
+                    .Include(p=>p.Autor)
                     .ToList();
                 return lista;
             }

@@ -1,6 +1,8 @@
 ﻿using Blog.DAL;
 using Blog.Infra;
 using Blog.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +15,14 @@ namespace Blog.Areas.Admin.Controllers
     public class PostController : Controller
     {
         private PostDAO DAO;
-
-        public PostController()
+        public PostController(PostDAO DAO)
         {
-            DAO = new PostDAO();
+            this.DAO = DAO;
         }
 
         public ActionResult Index()
         {
-            var lista = DAO.Lista();
+            var lista = DAO.ListaPublicados();
             return View(lista);
         }
 
@@ -36,6 +37,8 @@ namespace Blog.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var manager = HttpContext.GetOwinContext().GetUserManager<UsuarioManager>();
+                p.AutorId = User.Identity.GetUserId();
                 DAO.Adiciona(p);
                 return RedirectToAction("Index");
             }

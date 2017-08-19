@@ -10,6 +10,7 @@
             <th><center>Post</center></th>
             <th><center>Categoria</center></th>
             <th><center>Publicado Em</center></th>
+            <th><center>Autor</center></th>
             <th colspan="3"><center>Ações</center></th>
         </tr>
     </thead>
@@ -32,6 +33,9 @@
                     {
                         @Html.Raw("Não Publicado")
                     }
+                </td>
+                <td>
+                    @p.Autor.UserName
                 </td>
                 <td>
                     <center>

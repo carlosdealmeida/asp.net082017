@@ -16,11 +16,10 @@ namespace Blog.Controllers
     public class HomeController : Controller
     {
         private PostDAO DAO;
-
-        public HomeController()
+        public HomeController(PostDAO DAO)
         {
-            DAO = new PostDAO();
-        }
+            this.DAO = DAO;
+        }
         // GET: Home
         public ActionResult Index()
         {
